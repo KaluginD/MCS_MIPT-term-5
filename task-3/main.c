@@ -23,7 +23,7 @@ typedef struct MergeInfo {
 int Comparator(const void *a, const void *b) {
   const int *inta = (const int *) a;
   const int *intb = (const int *) b;
-  return (*inta > *intb) - (*inta < *intb);
+  return (*inta - *intb);
 }
 
 void *SortSomeChunks(void *income_info) {
@@ -66,7 +66,7 @@ void ChunkSort(const int n, const int m, const int P, int *array) {
   qsort(&array[array_index], n - array_index, sizeof(int), Comparator);
 }
 
-void* MergeChunks(void *income_info) {
+void *MergeChunks(void *income_info) {
   MergeInfo *info = (MergeInfo *) income_info;
 
   int first_iter = 0, second_iter = 0;
@@ -174,7 +174,6 @@ int main(int argc, char **argv) {
   free(array);
   free(array_for_builtin_sort);
   free(array_for_parallel_sort);
-
 
   if (flag == 1) {
     printf("sorting algorithm works correctly\n");
