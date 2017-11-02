@@ -171,6 +171,10 @@ int main(int argc, char **argv) {
   }
   fprintf(results, "\n");
   fclose(results);
+  free(array);
+  free(array_for_builtin_sort);
+  free(array_for_parallel_sort);
+
 
   if (flag == 1) {
     printf("sorting algorithm works correctly\n");
