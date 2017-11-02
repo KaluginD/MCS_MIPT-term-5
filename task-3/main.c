@@ -138,14 +138,14 @@ int main(int argc, char** argv) {
   int m = atoi(argv[2]);
   int P = atoi(argv[3]);
 
-  FILE* results = fopen("results.txt", "w");
+  FILE* results = fopen("data.txt", "w");
   int* array = (int*) malloc(n * sizeof(int));
   srand(time(NULL));
   for (size_t i = 0; i < n; ++i) {
     array[i] = rand() % MAX_NUM;
     fprintf(results, "%d ", array[i]);
   }
-  fprintf(results, "\n==================================================\n");
+  fprintf(results, "\n");
 
   int* array_for_parallel_sort = array;
   int* array_for_builtin_sort = array;
