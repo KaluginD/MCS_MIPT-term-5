@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
   MPI_Type_create_resized(neighbour, 0, a * len * sizeof(int), &form);
   MPI_Type_commit(&form);
   int position = len * (a * l * (node / a) + node % a);
-  MPI_File_set_view(results, position * sizeof(int), MPI_INT, form, "naive", MPI_INFO_NULL);
+  MPI_File_set_view(results, position * sizeof(int), MPI_INT, form, "native", MPI_INFO_NULL);
   MPI_File_write_all(results, field, field_size, MPI_INT, MPI_STATUS_IGNORE);
   MPI_File_close(&results);
   free(field);
